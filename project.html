@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nordic Market</title>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #FAFAF5;
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="text-[#223127]">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-[#5E7154]">Nordic Market</h1>
+      <nav class="hidden md:flex space-x-6 text-sm font-medium">
+        <a href="#" class="hover:text-[#5E7154]">Home</a>
+        <a href="#" class="hover:text-[#5E7154]">Browse Shops</a>
+        <a href="#" class="hover:text-[#5E7154]">Register Shop</a>
+      </nav>
+      <div class="text-2xl cursor-pointer">🛒</div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative bg-cover bg-center h-[90vh] flex items-center justify-center" style="background-image: url('https://images.unsplash.com/photo-1600703129426-b67f7f0b256f');">
+    <div class="text-center px-4" data-aos="fade-up">
+      <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow">Explore the Nordic Marketplace</h2>
+      <a href="#" class="bg-[#5E7154] text-white px-6 py-3 rounded-lg text-lg hover:bg-[#CE5A3C] transition">Browse Marketplace</a>
+    </div>
+  </section>
+
+  <!-- Search Section -->
+  <section class="py-10 px-4 text-center" data-aos="fade-up">
+    <div class="max-w-xl mx-auto flex flex-col md:flex-row bg-white shadow-md rounded-lg overflow-hidden">
+      <select class="w-full md:w-1/3 p-3 border-r border-gray-300 outline-none">
+        <option>All Categories</option>
+        <option>Fashion</option>
+        <option>Handmade</option>
+        <option>Electronics</option>
+      </select>
+      <input type="text" placeholder="Search products..." class="w-full p-3 outline-none" />
+    </div>
+  </section>
+
+  <!-- Featured Categories -->
+  <section class="py-12 px-4 max-w-6xl mx-auto" data-aos="fade-up">
+    <h3 class="text-2xl font-semibold mb-6 text-center">Featured Categories</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="bg-white p-6 rounded-lg shadow text-center hover:shadow-lg transition">
+        👗 <p class="mt-2 font-medium">Fashion</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow text-center hover:shadow-lg transition">
+        🪵 <p class="mt-2 font-medium">Handmade</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow text-center hover:shadow-lg transition">
+        📱 <p class="mt-2 font-medium">Electronics</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow text-center hover:shadow-lg transition">
+        🖼️ <p class="mt-2 font-medium">Art & Decor</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Top Shops -->
+  <section class="py-12 px-4 max-w-6xl mx-auto" data-aos="fade-up">
+    <h3 class="text-2xl font-semibold mb-6 text-center">Top Shops</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="bg-white shadow-md rounded-lg overflow-hidden">
+        <img src="https://source.unsplash.com/300x200/?store" class="w-full" />
+        <div class="p-4">
+          <h4 class="font-semibold text-lg">Nordic Crafts</h4>
+          <p>⭐ 4.8</p>
+        </div>
+      </div>
+      <div class="bg-white shadow-md rounded-lg overflow-hidden">
+        <img src="https://source.unsplash.com/300x200/?handmade" class="w-full" />
+        <div class="p-4">
+          <h4 class="font-semibold text-lg">Fjell Studio</h4>
+          <p>⭐ 4.7</p>
+        </div>
+      </div>
+      <div class="bg-white shadow-md rounded-lg overflow-hidden">
+        <img src="https://source.unsplash.com/300x200/?electronics" class="w-full" />
+        <div class="p-4">
+          <h4 class="font-semibold text-lg">North Tech</h4>
+          <p>⭐ 4.6</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-16 px-4 bg-[#f0f3ed]" data-aos="fade-up">
+    <h3 class="text-2xl font-semibold text-center mb-8">How It Works</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div>
+        <div class="text-4xl mb-2">📝</div>
+        <h4 class="font-bold">1. Register Shop</h4>
+        <p class="text-sm text-gray-600">Create your free seller account</p>
+      </div>
+      <div>
+        <div class="text-4xl mb-2">🛒</div>
+        <h4 class="font-bold">2. Add Products</h4>
+        <p class="text-sm text-gray-600">Upload images, prices, and details</p>
+      </div>
+      <div>
+        <div class="text-4xl mb-2">💰</div>
+        <h4 class="font-bold">3. Start Selling</h4>
+        <p class="text-sm text-gray-600">Grow your business online</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#223127] text-white py-10 px-4">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+      <div>
+        <h5 class="text-xl font-bold mb-2">Nordic Market</h5>
+        <p class="text-sm">Curated marketplace inspired by nature and craftsmanship.</p>
+      </div>
+      <div>
+        <h5 class="text-lg font-semibold mb-2">Quick Links</h5>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:underline">About</a></li>
+          <li><a href="#" class="hover:underline">Register Shop</a></li>
+          <li><a href="#" class="hover:underline">Help Center</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="text-lg font-semibold mb-2">Newsletter</h5>
+        <form class="flex space-x-2">
+          <input type="email" placeholder="Your email" class="p-2 rounded-md text-black w-full" />
+          <button class="bg-[#5E7154] px-4 rounded-md hover:bg-[#CE5A3C] transition">Join</button>
+        </form>
+      </div>
+    </div>
+    <p class="text-center text-sm mt-8">© 2025 Saikat Roy. All rights reserved.</p>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true });
+  </script>
+</body>
+</html>

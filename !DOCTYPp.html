@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order Form – Nordic Woods</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+      animation: fadeIn 0.6s ease-out;
+    }
+  </style>
+</head>
+<body class="bg-[#f8f9fa] text-[#2e2e2e] font-sans">
+
+  <div class="max-w-5xl mx-auto px-4 py-10 fade-in">
+    <h1 class="text-3xl font-bold text-center mb-8">Complete Your Order</h1>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- Customer Info Form -->
+      <form id="orderForm" class="bg-white p-6 rounded-xl shadow space-y-4">
+        <h2 class="text-xl font-semibold mb-2">Customer Information</h2>
+
+        <div>
+          <label class="block text-sm mb-1">Full Name</label>
+          <input required type="text" class="w-full border rounded px-3 py-2" placeholder="John Doe" />
+        </div>
+
+        <div>
+          <label class="block text-sm mb-1">Email</label>
+          <input required type="email" class="w-full border rounded px-3 py-2" placeholder="you@example.com" />
+        </div>
+
+        <div>
+          <label class="block text-sm mb-1">Phone</label>
+          <input required type="tel" class="w-full border rounded px-3 py-2" placeholder="+91 9876543210" />
+        </div>
+
+        <div>
+          <label class="block text-sm mb-1">Address</label>
+          <textarea required class="w-full border rounded px-3 py-2" rows="3" placeholder="123 Forest Lane, Hilltown"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-sm mb-1">Additional Notes</label>
+          <textarea class="w-full border rounded px-3 py-2" rows="2" placeholder="Leave at doorstep..."></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-[#6b8f71] hover:bg-[#d3643b] text-white font-semibold py-3 px-4 rounded-xl transition">
+          Place Order
+        </button>
+      </form>
+
+      <!-- Order Summary -->
+      <div class="bg-white p-6 rounded-xl shadow">
+        <h2 class="text-xl font-semibold mb-4">Order Summary</h2>
+        <ul class="space-y-3">
+          <li class="flex justify-between">
+            <span>Nordic Chair x2</span>
+            <span>₹4,998</span>
+          </li>
+          <li class="flex justify-between">
+            <span>Forest Oak Table x1</span>
+            <span>₹7,499</span>
+          </li>
+          <li class="flex justify-between border-t pt-2 font-semibold">
+            <span>Total</span>
+            <span>₹12,497</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Confirmation Message -->
+    <div id="confirmation" class="hidden mt-10 bg-white border-l-4 border-[#6b8f71] p-6 rounded-xl shadow text-[#2e2e2e] fade-in">
+      <h2 class="text-xl font-semibold mb-2">✅ Order Placed!</h2>
+      <p>Thank you for your purchase. We'll contact you soon with shipping details.</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('orderForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      this.classList.add('hidden');
+      document.getElementById('confirmation').classList.remove('hidden');
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel – Manage Orders</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    .slide-up {
+      animation: slideUp 0.5s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-[#F5F5F4] text-[#4B5563] min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-[#2F3E34] text-white px-6 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">🛒 Nordic Marketplace</h1>
+    <nav class="space-x-6 text-sm font-medium">
+      <a href="#" class="hover:text-[#D15B38] transition">Dashboard</a>
+      <a href="#" class="hover:text-[#D15B38] transition">Products</a>
+      <a href="#" class="hover:text-[#D15B38] transition">Orders</a>
+      <a href="#" class="hover:text-[#D15B38] transition">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="px-4 md:px-10 py-8 fade-in">
+    <div class="mb-6">
+      <h2 class="text-2xl font-semibold text-[#2F3E34]">Manage Orders</h2>
+    </div>
+
+    <!-- Status Filter -->
+    <div class="mb-4 flex flex-wrap gap-2">
+      <button class="filter-btn px-4 py-2 text-sm bg-white rounded-md shadow hover:bg-[#D15B38] hover:text-white transition">All</button>
+      <button class="filter-btn px-4 py-2 text-sm bg-white rounded-md shadow hover:bg-[#D15B38] hover:text-white transition">Pending</button>
+      <button class="filter-btn px-4 py-2 text-sm bg-white rounded-md shadow hover:bg-[#D15B38] hover:text-white transition">Confirmed</button>
+      <button class="filter-btn px-4 py-2 text-sm bg-white rounded-md shadow hover:bg-[#D15B38] hover:text-white transition">Shipped</button>
+      <button class="filter-btn px-4 py-2 text-sm bg-white rounded-md shadow hover:bg-[#D15B38] hover:text-white transition">Delivered</button>
+      <button class="filter-btn px-4 py-2 text-sm bg-white rounded-md shadow hover:bg-[#D15B38] hover:text-white transition">Cancelled</button>
+    </div>
+
+    <!-- Success Alert -->
+    <div id="alertBox" class="hidden mb-4 px-4 py-3 bg-[#6B8E4E] text-white rounded-lg fade-in shadow">
+      ✅ <span id="alertMessage">Order updated successfully.</span>
+    </div>
+
+    <!-- Orders Table -->
+    <div class="overflow-x-auto rounded-xl shadow bg-white">
+      <table class="w-full min-w-[600px] text-sm">
+        <thead class="bg-[#E5E7EB] text-[#2F3E34] text-left uppercase text-xs">
+          <tr>
+            <th class="p-4">Order ID</th>
+            <th class="p-4">Customer</th>
+            <th class="p-4">Product(s)</th>
+            <th class="p-4">Date</th>
+            <th class="p-4">Status</th>
+            <th class="p-4 text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody id="orderTable">
+          <!-- Row Template -->
+          <tr class="border-t slide-up">
+            <td class="p-4 font-medium">#324</td>
+            <td class="p-4">Arjun Mehta</td>
+            <td class="p-4">Oak Coffee Table</td>
+            <td class="p-4">2025-07-05</td>
+            <td class="p-4">
+              <label for="status-324" class="sr-only">Order Status</label>
+              <select id="status-324" class="status-dropdown border rounded px-2 py-1 bg-white">
+                <option>Pending</option>
+                <option>Confirmed</option>
+                <option>Shipped</option>
+                <option>Delivered</option>
+                <option>Cancelled</option>
+              </select>
+            </td>
+            <td class="p-4 text-center">
+              <button
+                class="update-btn bg-[#6B8E4E] hover:bg-[#D15B38] text-white px-3 py-2 rounded-md transition"
+                data-order-id="324"
+              >Update</button>
+            </td>
+          </tr>
+
+          <!-- Example More Rows -->
+          <tr class="border-t slide-up">
+            <td class="p-4 font-medium">#325</td>
+            <td class="p-4">Sara Iyer</td>
+            <td class="p-4">Birch Lamp, Pine Rug</td>
+            <td class="p-4">2025-07-04</td>
+            <td class="p-4">
+              <label for="status-325" class="sr-only">Order Status</label>
+              <select id="status-325" class="status-dropdown border rounded px-2 py-1 bg-white">
+                <option>Pending</option>
+                <option selected>Confirmed</option>
+                <option>Shipped</option>
+                <option>Delivered</option>
+                <option>Cancelled</option>
+              </select>
+            </td>
+            <td class="p-4 text-center">
+              <button
+                class="update-btn bg-[#6B8E4E] hover:bg-[#D15B38] text-white px-3 py-2 rounded-md transition"
+                data-order-id="325"
+              >Update</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- JavaScript -->
+  <script>
+    const updateButtons = document.querySelectorAll('.update-btn');
+    const alertBox = document.getElementById('alertBox');
+    const alertMessage = document.getElementById('alertMessage');
+
+    updateButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const orderId = button.dataset.orderId;
+        const dropdown = document.getElementById(`status-${orderId}`);
+        const newStatus = dropdown.value;
+
+        alertMessage.textContent = `Order #${orderId} marked as ${newStatus}`;
+        alertBox.classList.remove('hidden');
+
+        // Hide alert after 3 seconds
+        setTimeout(() => {
+          alertBox.classList.add('hidden');
+        }, 3000);
+      });
+    });
+  </script>
+
+</body>
+</html>

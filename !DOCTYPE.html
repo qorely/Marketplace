@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-[#F9FAFB] text-[#2F4F4F]">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop Directory</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body class="font-sans">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white shadow px-4 py-3 flex justify-between items-center">
+    <div class="text-xl font-bold">Marketplace</div>
+    <nav class="space-x-6 hidden md:block">
+      <a href="#" class="hover:underline">Home</a>
+      <a href="#" class="hover:underline">Browse Shops</a>
+      <a href="#" class="hover:underline">Register Shop</a>
+    </nav>
+    <div class="text-xl">🛒</div>
+  </header>
+
+  <!-- Page Container -->
+  <div class="max-w-7xl mx-auto p-4 grid grid-cols-1 md:grid-cols-4 gap-4">
+
+    <!-- Sidebar Filters -->
+    <aside class="md:col-span-1 sticky top-20 h-max bg-white rounded-xl shadow p-4 border border-[#D3D3D3]">
+      <h2 class="text-lg font-semibold mb-4">Filters</h2>
+      <div class="mb-4">
+        <p class="font-medium mb-2">Categories</p>
+        <label class="block"><input type="checkbox" class="mr-2">Clothing</label>
+        <label class="block"><input type="checkbox" class="mr-2">Electronics</label>
+        <label class="block"><input type="checkbox" class="mr-2">Home Goods</label>
+      </div>
+      <div>
+        <p class="font-medium mb-2">Location</p>
+        <select class="w-full p-2 border border-[#D3D3D3] rounded">
+          <option>All</option>
+          <option>Delhi</option>
+          <option>Mumbai</option>
+          <option>Bangalore</option>
+        </select>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="md:col-span-3 space-y-6">
+      <!-- Search Bar -->
+      <div class="w-full">
+        <input type="text" placeholder="Search shops..."
+               class="w-full p-3 border border-[#D3D3D3] rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#6B8E23]" />
+      </div>
+
+      <!-- Shop Grid -->
+      <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Repeatable Shop Card -->
+        <div class="bg-white border border-[#D3D3D3] rounded-xl shadow hover:shadow-lg transition-transform duration-300 hover:scale-105"
+             data-aos="fade-up">
+          <img src="https://via.placeholder.com/300x180" alt="Shop Image" class="rounded-t-xl w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-lg font-bold mb-1">Urban Attire</h3>
+            <p class="text-sm text-gray-600 mb-2">Clothing</p>
+            <p class="text-sm mb-4">Trendy urban wear for all seasons.</p>
+            <a href="#" class="inline-block bg-[#6B8E23] text-white px-4 py-2 rounded hover:bg-[#B7410E] transition">View Shop</a>
+          </div>
+        </div>
+
+        <!-- Duplicate above card for other shops -->
+        <!-- Example: -->
+        <div class="bg-white border border-[#D3D3D3] rounded-xl shadow hover:shadow-lg transition-transform duration-300 hover:scale-105"
+             data-aos="fade-up" data-aos-delay="100">
+          <img src="https://via.placeholder.com/300x180" class="rounded-t-xl w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-lg font-bold mb-1">Tech Central</h3>
+            <p class="text-sm text-gray-600 mb-2">Electronics</p>
+            <p class="text-sm mb-4">Latest gadgets and accessories.</p>
+            <a href="#" class="inline-block bg-[#6B8E23] text-white px-4 py-2 rounded hover:bg-[#B7410E] transition">View Shop</a>
+          </div>
+        </div>
+
+        <!-- Add more shop cards as needed -->
+      </div>
+
+      <!-- Pagination -->
+      <div class="flex justify-center items-center space-x-2 mt-6">
+        <button class="px-3 py-1 rounded bg-white border border-[#D3D3D3] hover:bg-gray-100">Prev</button>
+        <button class="px-3 py-1 rounded bg-[#6B8E23] text-white">1</button>
+        <button class="px-3 py-1 rounded bg-white border border-[#D3D3D3] hover:bg-gray-100">2</button>
+        <button class="px-3 py-1 rounded bg-white border border-[#D3D3D3] hover:bg-gray-100">Next</button>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shopping Cart – Nordic Woods</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes slideInRight {
+      0% {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .slide-in-right {
+      animation: slideInRight 0.5s ease-out;
+    }
+  </style>
+</head>
+<body class="bg-[#f8f9fa] text-[#2e2e2e] font-sans">
+
+  <div class="max-w-6xl mx-auto px-4 py-8 slide-in-right">
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-3xl font-bold text-[#2e2e2e]">Your Cart</h1>
+      <div class="flex items-center gap-2 text-[#4d4d4d]">
+        <svg class="w-6 h-6 text-[#6b8f71]" fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 24 24">
+          <path d="M3 3h2l.4 2M7 13h14l1-5H6.4M7 13L5.4 6M7 13l-2 9h13.6a1 1 0 001-1l1-5H7z"/>
+        </svg>
+        <span>Total: ₹12,497</span>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex flex-col lg:flex-row gap-8">
+      <!-- Cart Table -->
+      <div class="flex-1">
+        <div class="overflow-x-auto bg-white rounded-xl shadow">
+          <table class="w-full table-auto text-sm">
+            <thead class="bg-[#e0e0e0] text-left text-[#2e2e2e] uppercase text-xs">
+              <tr>
+                <th class="p-4">Product</th>
+                <th class="p-4">Price</th>
+                <th class="p-4">Quantity</th>
+                <th class="p-4">Total</th>
+                <th class="p-4"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Item Row -->
+              <tr class="border-b">
+                <td class="p-4 flex items-center gap-4">
+                  <img src="https://via.placeholder.com/60" class="w-14 h-14 rounded-md border" alt="Item" />
+                  <span>Nordic Chair</span>
+                </td>
+                <td class="p-4">₹2,499</td>
+                <td class="p-4">
+                  <input type="number" min="1" value="2"
+                         class="w-16 border rounded px-2 py-1 text-center text-[#2e2e2e]">
+                </td>
+                <td class="p-4">₹4,998</td>
+                <td class="p-4">
+                  <button class="text-[#d3643b] hover:underline text-sm">Remove</button>
+                </td>
+              </tr>
+
+              <tr class="border-b">
+                <td class="p-4 flex items-center gap-4">
+                  <img src="https://via.placeholder.com/60" class="w-14 h-14 rounded-md border" alt="Item" />
+                  <span>Forest Oak Table</span>
+                </td>
+                <td class="p-4">₹7,499</td>
+                <td class="p-4">
+                  <input type="number" min="1" value="1"
+                         class="w-16 border rounded px-2 py-1 text-center text-[#2e2e2e]">
+                </td>
+                <td class="p-4">₹7,499</td>
+                <td class="p-4">
+                  <button class="text-[#d3643b] hover:underline text-sm">Remove</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Order Summary -->
+      <div class="w-full lg:w-1/3 bg-white rounded-xl shadow p-6">
+        <h2 class="text-xl font-semibold mb-4">Order Summary</h2>
+        <div class="flex justify-between mb-2">
+          <span>Subtotal</span>
+          <span>₹12,497</span>
+        </div>
+        <div class="flex justify-between mb-2">
+          <span>Taxes (GST)</span>
+          <span>₹625</span>
+        </div>
+        <div class="flex justify-between font-semibold text-[#2e2e2e] border-t pt-2 mt-2">
+          <span>Total</span>
+          <span>₹13,122</span>
+        </div>
+        <button class="mt-6 w-full bg-[#6b8f71] hover:bg-[#d3643b] text-white font-semibold py-3 px-4 rounded-xl transition duration-300">
+          Order Now
+        </button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
